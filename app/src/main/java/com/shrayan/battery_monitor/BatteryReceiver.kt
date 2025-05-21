@@ -13,7 +13,7 @@ class BatteryReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
 
         val batteryLevel = intent?.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) ?: -1
-        val threshold = 98
+        val threshold = 25
 
         if (batteryLevel in 1..threshold) {
 
@@ -23,7 +23,7 @@ class BatteryReceiver : BroadcastReceiver() {
                     "com.shrayan.message_display.MainActivity"
                 )
                 putExtra("battery_level", batteryLevel)
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
             }
 
             try {
