@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private val sharedPreferences by lazy { getSharedPreferences(BATTERY_MONITOR, MODE_PRIVATE) }
 
-    private var threshold: Int = 1
+    private var threshold: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

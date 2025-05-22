@@ -18,9 +18,9 @@ class BatteryReceiver : BroadcastReceiver() {
         }
 
         val sharedPreferences = context.getSharedPreferences(BATTERY_MONITOR, MODE_PRIVATE)
+        val threshold = sharedPreferences?.getInt(THRESHOLD, 0) ?: 0
 
         val batteryLevel = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1)
-        val threshold = sharedPreferences?.getInt(THRESHOLD, 0) ?: 0
 
         if (batteryLevel in 0..threshold) {
 
